@@ -1,13 +1,22 @@
 import socket
 
-UDP_IP = "192.168.1.82"
-UDP_PORT = 5006
-MESSAGE = "Hello World!"
+UDP_IP = "192.168.2.2"    #SBC IP address
+UDP_PORT = 5005		  #matching port
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-print "UDP Target IP", UDP_IP
-print "UDP Target Port", UDP_PORT
-print "Message:", MESSAGE
+loop = True
+while (loop):
+	#User Inputs
+	print('---------------------------------------------------------------\n')
+	print('choice of Inputs: forward - right wheel position = left wheel position > 0 \nreverse - right wheel position = left wheel position < 0\nleft - right wheel position > left wheel position\nright - right wheel position < left wheel position')
+	print('---------------------------------------------------------------\n')
+	#Input Commands
+	Rwheel = input('Enter Right Wheel Position(numeric value):')
+	Lwheel = input('Enter Left Wheel Position (numeric value):')
+	#Command Packet
+	User_input = 'Left:'+str(Lwheel)+'|'+'Right:'+str(Rwheel)
+	sock.sendto(User_input, (UDP_IP, UDP_PORT))
+	print '\nLeft Wheel Input:%i \tRight Wheel Input:%i' %(Lwheel, Rwheel) 
 
-sock = socket.socket(socket.AF_INET,#Internet,
-		     socket.SOCK_DGRAM)
-sock.sendto(MESSAGE,(UDP_IP,UDP_PORT))
+sock.close()  
+
