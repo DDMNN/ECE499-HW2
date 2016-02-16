@@ -14,7 +14,7 @@ while True:
 	data, addr = sock.recvfrom(1024)  #Buffer size is 1024 bytes
 	end = time.time()
 	#separating the packet
-	[Left, Right] = data.split('|')
+	[Lwheel, Rwheel] = data.split('|')
 	LW = int(Lwheel)
 	RW = int(Rwheel)
 	print'Left Wheel  :%i Left Wheel  x2:%i\n' %(LW,2*LW)
