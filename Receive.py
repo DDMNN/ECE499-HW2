@@ -1,12 +1,26 @@
+import time
 import socket
 
-UDP_IP = "192.168.1.81"
-UDP_PORT = 5005
+UDP_IP ="192.168.1.151"    #SBC IP Address 
+UDP_PORT= 5005		   #matching port
 
-sock = socket.socket(socket.AF_INET,#Internet,
-		     socket.SOCK_DGRAM)
-sock.bind((UDP_IP,UDP_PORT))
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind((UDP_IP, UDP_PORT))
 
-while True:
-	data, addr = sock.recvfrom(1024)
-	print"Received Message", data
+while True: 
+	#Receive Packet
+	print('--------------------------')
+	start = time.time()
+	data, addr = sock.recvfrom(1024)  #Buffer size is 1024 bytes
+	end = time.time()
+	#separating the packet
+	[Left, Right] = data.split('|')
+	LW = int(Lwheel)
+	RW = int(Rwheel)
+	print'Left Wheel  :%i Left Wheel  x2:%i\n' %(LW,2*LW)
+	print'Right Wheel :%i Right Wheel x2:%i\n' %(LW,2*LW)
+	print "Recieved Packet:", data,  '\n'
+	#computing bit rate and printing it
+	duration = (end - start)
+	rate = (len(pack)/(duration)*8)
+	print 'Bit Rate (bps):%i' %(rate)
