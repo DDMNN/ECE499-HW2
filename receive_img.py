@@ -3,7 +3,7 @@ import sys
 import time
 from PIL import Image
 
-host="192.168.2.1"
+host="xxx.xxx.x.x" #IP of receiving computer (my lap top)
 port = 5005
 sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 sock.bind((host,port))
