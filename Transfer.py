@@ -1,6 +1,6 @@
 import socket
 
-UDP_IP = "192.168.2.2"    #SBC IP address
+UDP_IP = "xxx.xxx.x.x"    #SBC IP address
 UDP_PORT = 5005		  #matching port
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
